@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <Header />
+    <Header v-if="$router.currentRoute.path !== '/'"/>
     <router-view></router-view>
   </div>
 </template>
