@@ -1,6 +1,11 @@
 <template>
   <div class="wrapper">
-    <Header v-if="$router.currentRoute.path !== '/'"/>
+    <Header
+      v-if="
+        $router.currentRoute.path !== '/' &&
+          $router.currentRoute.name !== undefined
+      "
+    />
     <router-view></router-view>
   </div>
 </template>
@@ -17,5 +22,9 @@ export default {
 </script>
 
 <style scoped>
-
+.wrapper {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
 </style>

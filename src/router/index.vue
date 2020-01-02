@@ -16,4 +16,10 @@ export default {
 
 <style lang="css" scoped>
 @import '~@/assets/style/hero.css';
+@media screen and (max-width: 768px) {
+  .hero-wrapper {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+}
 </style>
