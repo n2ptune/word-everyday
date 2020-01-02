@@ -4,6 +4,7 @@ import App from './App.vue'
 // Plugins
 import router from './router'
 import breakpoint from '@/plugins/breakpoint'
+import dayjs from '@/plugins/day'
 import './plugins/axios'
 
 // Styles
@@ -21,6 +22,7 @@ Vue.component('font-awesome-icon', FontAwesomeIcon)
 
 Vue.config.productionTip = false
 Vue.use(breakpoint)
+Vue.prototype.$day = dayjs
 
 new Vue({
   render: h => h(App),
