@@ -7,7 +7,7 @@
       <div class="hero-content-subtitle">
         10 Words per day
       </div>
-      <div class="hero-content-body">
+      <div class="hero-content-body-right hero-content-body">
         <router-link v-for="route in routes" :key="route.to" :to="route.to"
           >{{ route.text.out }}<br v-if="route.text.over" />{{
             route.text.over || ''

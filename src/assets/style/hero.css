@@ -24,8 +24,11 @@
   margin: 0 auto;
   line-height: 1rem;
 }
-.hero-content-body {
+.hero-content-body-right {
   margin: 3rem auto 0 auto;
+}
+.hero-content-body-left {
+  margin-top: 2rem;
 }
 .hero-content-body a {
   display: block;

@@ -1,32 +1,50 @@
 <template>
-  <div class="word" :style="{ width: width || '100%' }">
-    <div class="word-name">{{ word.word }} : {{ word.translatedWord }}</div>
+  <div class="word-wrapper">
+    <transition name="fade-content" mode="out-in">
+      <WordLoading v-if="!words.length" key="loading" />
+      <WordCard v-else :words="words" :info="info" key="words-card" />
+    </transition>
   </div>
 </template>
 
 <script>
 export default {
-  props: {
-    word: {
-      type: Object,
-      required: true
-    },
-    width: {
-      type: String,
-      required: false
+  components: {
+    WordLoading: () => import('@/components/words/WordLoading'),
+    WordCard: () => import('@/components/words/WordCard')
+  },
+  data() {
+    return {
+      words: [],
+      info: {
+        id: null,
+        date: null
+      }
     }
+  },
+  async created() {
+    // Base URL
+    const baseURL =
+      process.env.NODE_ENV === 'development'
+        ? 'http://localhost:4501/v0'
+        : 'https://api.unending.xyz/v0'
+    const { data } = await this.axios.get('/random', {
+      baseURL
+    })
+    this.words = data.words
+    ;[this.info.id, this.info.date] = [data.id, data.date]
   }
 }
 </script>
 
 <style scoped>
-.word {
-  display: flex;
-  flex-wrap: wrap;
-  flex-basis: auto;
-  padding: 1.5rem 0.4rem;
-  margin: 1rem auto;
-  border-radius: 10px;
-  box-shadow: 0 2px 43px 1px rgba(0, 0, 0, .09);
+.fade-content-enter-active,
+.fade-content-leave-active {
+  transition: opacity 0.55s;
+  opacity: 1;
+}
+.fade-content-enter,
+.fade-content-leave-to {
+  opacity: 0;
 }
 </style>
