@@ -27,10 +27,6 @@
         </div>
       </div>
     </div>
-    <div class="card-description">
-      영어 단어를 클릭하면 <span class="naver-link">네이버 영어사전</span>으로 이동합니다.<br />
-      한글 단어를 클릭하면 <span class="google-link">구글 번역 페이지</span>로 이동합니다.
-    </div>
   </div>
 </template>
 
@@ -84,19 +80,5 @@ export default {
 .word-translate {
   display: inline-block;
   margin: 0 0.5rem 0 0.5rem;
-}
-.card-description {
-  display: block;
-  text-align: center;
-  color: var(--secondary-color);
-  margin: 1rem 1.5rem 0 1.5rem;
-}
-.card-description > .naver-link {
-  color: var(--primary-color);
-  font-weight: bold;
-}
-.card-description > .google-link {
-  color: #1999FF;
-  font-weight: bold;
 }
 </style>
