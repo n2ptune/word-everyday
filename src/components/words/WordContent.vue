@@ -31,6 +31,10 @@ export default {
     const { data } = await this.axios.get('/random', {
       baseURL
     })
+    const { data: hackerNews } = await this.axios.get('/hackernews', {
+      baseURL
+    })
+    console.log(hackerNews)
     this.words = data.words
     ;[this.info.id, this.info.date] = [data.id, data.date]
   }
