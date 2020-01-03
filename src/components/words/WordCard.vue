@@ -17,12 +17,19 @@
           >
         </div>
         <div class="word-translate">
-          {{ word.translatedText }}
+          <a
+            :href="
+              `https://translate.google.com/?hl=ko#view=home&op=translate&sl=en&tl=ko&text=${word.word}`
+            "
+            target="_blank"
+            >{{ word.translatedText }}</a
+          >
         </div>
       </div>
     </div>
     <div class="card-description">
-      영어 단어를 클릭하면 <span>네이버 영어사전</span>으로 이동합니다.
+      영어 단어를 클릭하면 <span class="naver-link">네이버 영어사전</span>으로 이동합니다.<br />
+      한글 단어를 클릭하면 <span class="google-link">구글 번역 페이지</span>로 이동합니다.
     </div>
   </div>
 </template>
@@ -38,9 +45,6 @@ export default {
       type: Object,
       required: true
     }
-  },
-  created() {
-    // console.log(this.words)
   }
 }
 </script>
@@ -68,7 +72,11 @@ export default {
 .word-name {
   font-weight: bold;
 }
-.word-name > a:hover {
+.word-name a:hover {
+  text-decoration-line: underline;
+  text-decoration-style: dashed;
+}
+.word-translate a:hover {
   text-decoration-line: underline;
   text-decoration-style: dashed;
 }
@@ -83,8 +91,12 @@ export default {
   color: var(--secondary-color);
   margin: 1rem 1.5rem 0 1.5rem;
 }
-.card-description > span {
+.card-description > .naver-link {
   color: var(--primary-color);
+  font-weight: bold;
+}
+.card-description > .google-link {
+  color: #1999FF;
   font-weight: bold;
 }
 </style>

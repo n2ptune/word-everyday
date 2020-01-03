@@ -24,12 +24,19 @@ export default {
 
 <style scoped>
 .hero {
+  z-index: 10;
   background-color: #efefef;
+  box-shadow: 1rem 0 1rem 1rem rgba(0, 0, 0, 0.21);
 }
 .hero-content-title {
   font-weight: bold;
 }
 .hero-content-subtitle {
   color: rgba(0, 0, 0, 0.64);
+}
+@media screen and (max-width: 768px) {
+  .hero {
+    box-shadow: none;
+  }
 }
 </style>
