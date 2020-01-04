@@ -5,11 +5,14 @@
       <WordCard v-else :words="words" :info="info" key="words-card" />
     </transition>
     <transition name="fade-content" mode="out-in">
-      <HackerNews
+      <!-- <HackerNews
         v-if="hackerNews.length"
         :news="hackerNews"
         key="hacker-news"
-      />
+      /> -->
+      <p v-if="hackerNews.length">
+        {{ hnExampleLength }}
+      </p>
     </transition>
     <div class="card-description">
       영어 단어를 클릭하면 <span class="naver-link">네이버 영어사전</span>으로
@@ -24,8 +27,8 @@
 export default {
   components: {
     WordLoading: () => import('@/components/words/WordLoading'),
-    WordCard: () => import('@/components/words/WordCard'),
-    HackerNews: () => import('@/components/words/HackerNews')
+    WordCard: () => import('@/components/words/WordCard')
+    // HackerNews: () => import('@/components/words/HackerNews')
   },
   data() {
     return {
@@ -52,6 +55,18 @@ export default {
       baseURL
     })
     this.hackerNews = hackerNews
+    console.log(this.hackerNews)
+  },
+  computed: {
+    hnExampleLength() {
+      let initial = 0
+      let n = 0
+      const reducer = (acc, cur) => (cur ? acc + 1 : 0)
+      this.hackerNews.map(hn => {
+        n += hn.titles.reduce(reducer, initial)
+      })
+      return n
+    }
   }
 }
 </script>
