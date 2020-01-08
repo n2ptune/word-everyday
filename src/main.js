@@ -6,6 +6,7 @@ import router from './router'
 import breakpoint from '@/plugins/breakpoint'
 import dayjs from '@/plugins/day'
 import modal from 'vue-js-modal'
+import baseURL from '@/plugins/base-url'
 import './plugins/axios'
 
 // Styles
@@ -23,6 +24,7 @@ library.add(fas)
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 
 Vue.config.productionTip = false
+Vue.use(baseURL)
 Vue.use(breakpoint)
 Vue.use(modal, { componentName: 'word-modal' })
 Vue.prototype.$day = dayjs

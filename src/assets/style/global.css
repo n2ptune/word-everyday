@@ -17,4 +17,9 @@ body {
   --grey-color: grey;
   --gray-color: gray;
   --light-grey-color: rgba(0, 0, 0, 0.21);
+  --full-white-color: rgb(255, 255, 255);
+}
+
+.v--modal-overlay {
+  background: rgba(0, 0, 0, 0.56);
 }

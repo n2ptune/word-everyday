@@ -41,11 +41,7 @@ export default {
     }
   },
   async created() {
-    // Base URL
-    const baseURL =
-      process.env.NODE_ENV === 'development'
-        ? 'http://localhost:4501/v0'
-        : 'https://api.unending.xyz/v0'
+    const baseURL = this.$baseURL()
     const { data } = await this.axios.get('/random', {
       baseURL
     })

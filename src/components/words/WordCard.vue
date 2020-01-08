@@ -23,15 +23,21 @@
       name="word-modal"
       @before-open="openModalHandler"
       @before-close="closeModalHandler"
+      :adaptive="true"
+      width="650px"
       height="auto"
+      scrollable
     >
-      {{ modalContent }}
+      <WordQuiz :content="modalContent" />
     </word-modal>
   </div>
 </template>
 
 <script>
 export default {
+  components: {
+    WordQuiz: () => import('@/components/words/WordQuiz')
+  },
   data() {
     return {
       modalContent: {}
