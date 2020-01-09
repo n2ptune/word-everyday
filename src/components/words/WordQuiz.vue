@@ -7,20 +7,46 @@
       {{ content.word }}
     </div>
     <div class="word-choice">
-      <div class="word-sample" v-for="i in 4" :key="i">
-        <p class="word">sample</p>
+      <div class="word-sample" v-for="dummy in dummyWords" :key="dummy">
+        <p class="word">{{ dummy }}</p>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
   props: ['content'],
+  data() {
+    return {
+      dummyWords: []
+    }
+  },
+  computed: {
+    ...mapGetters({
+      filterDummy: 'words/getFilterDummyWord',
+      currentWord: 'words/getWordObjWithName'
+    })
+  },
   async created() {
-    const baseURL = this.$baseURL()
-    const { data } = await this.axios.get('/dummy/10/3', { baseURL })
-    console.log(data)
+    const isDummy = this.filterDummy(this.content.word)
+    if (!isDummy) {
+      const baseURL = this.$baseURL()
+      const { data } = await this.axios.get(
+        `/dummy/10/3/${this.content.translatedText}`,
+        {
+          baseURL
+        }
+      )
+      const dummy = {
+        dummy: data,
+        word: this.content.word
+      }
+      await this.$store.commit('words/setDummyText', dummy)
+    }
+    this.dummyWords = await this.currentWord(this.content.word)
   }
 }
 </script>

@@ -24,45 +24,33 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
   components: {
     WordLoading: () => import('@/components/words/WordLoading'),
     WordCard: () => import('@/components/words/WordCard')
     // HackerNews: () => import('@/components/words/HackerNews')
   },
-  data() {
-    return {
-      words: [],
-      info: {
-        id: null,
-        date: null
-      },
-      hackerNews: []
-    }
-  },
   async created() {
     const baseURL = this.$baseURL()
     const { data } = await this.axios.get('/random', {
       baseURL
     })
-    this.words = data.words
-    ;[this.info.id, this.info.date] = [data.id, data.date]
+    await this.$store.commit('words/setWords', data.words)
+    await this.$store.commit('words/setStatus', data)
     const { data: hackerNews } = await this.axios.get('/hackernews', {
       baseURL
     })
-    this.hackerNews = hackerNews
-    console.log(this.hackerNews)
+    await this.$store.commit('hn/setNews', hackerNews)
   },
   computed: {
-    hnExampleLength() {
-      let initial = 0
-      let n = 0
-      const reducer = (acc, cur) => (cur ? acc + 1 : 0)
-      this.hackerNews.map(hn => {
-        n += hn.titles.reduce(reducer, initial)
-      })
-      return n
-    }
+    ...mapGetters({
+      words: 'words/getWords',
+      info: 'words/getWordsStatus',
+      hackerNews: 'hn/getNews',
+      hnExampleLength: 'hn/getNewsLength'
+    })
   }
 }
 </script>
