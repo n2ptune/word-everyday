@@ -24,6 +24,7 @@
       @before-open="openModalHandler"
       @before-close="closeModalHandler"
       :adaptive="true"
+      :clickToClose="false"
       width="650px"
       height="auto"
       scrollable

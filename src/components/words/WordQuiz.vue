@@ -2,6 +2,18 @@
   <div class="word-quiz">
     <div class="word-title">
       <p>영어 단어에 알맞은 뜻을 골라보세요!</p>
+      <font-awesome-icon
+        class="btn-close-modal"
+        @click="closeModal"
+        icon="times"
+        :style="{
+          float: 'right',
+          paddingRight: '8px',
+          paddingTop: '3px',
+          color: 'black',
+          cursor: 'pointer'
+        }"
+      />
     </div>
     <div class="word-top">
       {{ content.word }}
@@ -47,17 +59,37 @@ export default {
       await this.$store.commit('words/setDummyText', dummy)
     }
     this.dummyWords = await this.currentWord(this.content.word)
+  },
+  methods: {
+    closeModal() {
+      this.$modal.hide('word-modal')
+    }
   }
 }
 </script>
 
 <style scoped>
 .word-quiz {
-  padding: 1rem;
+  padding: 0.5rem;
 }
 .word-title {
+  display: block;
   text-align: center;
   color: var(--secondary-color);
+}
+.word-title > p {
+  display: inline-block;
+}
+.word-title > span {
+  float: right;
+}
+.word-title::after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 1px;
+  margin-top: 0.45rem;
+  background: #eee;
 }
 .word-top {
   display: flex;
@@ -72,7 +104,6 @@ export default {
   justify-content: center;
   flex-wrap: wrap;
   height: auto;
-  margin: 1.25rem 0;
 }
 .word-sample {
   border-radius: 15px;
