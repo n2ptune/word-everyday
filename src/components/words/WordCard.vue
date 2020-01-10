@@ -27,6 +27,7 @@
       width="650px"
       height="auto"
       scrollable
+      transition="nice-modal-fade"
     >
       <WordQuiz :content="modalContent" />
     </word-modal>
