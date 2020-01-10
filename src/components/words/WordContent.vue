@@ -5,21 +5,12 @@
       <WordCard v-else :words="words" :info="info" key="words-card" />
     </transition>
     <transition name="fade-content" mode="out-in">
-      <!-- <HackerNews
-        v-if="hackerNews.length"
-        :news="hackerNews"
-        key="hacker-news"
-      /> -->
-      <p v-if="hackerNews.length">
-        {{ hnExampleLength }}
-      </p>
+      <div class="hn-preview" v-if="hackerNews.length">
+        <div class="hn-length">
+          {{ hnExampleLength }}개의 해커뉴스 예문 보기
+        </div>
+      </div>
     </transition>
-    <div class="card-description">
-      영어 단어를 클릭하면 <span class="naver-link">네이버 영어사전</span>으로
-      이동합니다.<br />
-      한글 단어를 클릭하면 <span class="google-link">구글 번역 페이지</span>로
-      이동합니다.
-    </div>
   </div>
 </template>
 
@@ -30,7 +21,6 @@ export default {
   components: {
     WordLoading: () => import('@/components/words/WordLoading'),
     WordCard: () => import('@/components/words/WordCard')
-    // HackerNews: () => import('@/components/words/HackerNews')
   },
   async created() {
     const baseURL = this.$baseURL()
@@ -65,18 +55,21 @@ export default {
 .fade-content-leave-to {
   opacity: 0;
 }
-.card-description {
-  display: block;
-  text-align: center;
-  color: var(--secondary-color);
-  margin: 1rem 1.5rem 0 1.5rem;
+.hn-preview {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.25rem;
 }
-.card-description > .naver-link {
-  color: var(--primary-color);
+.hn-length {
+  padding: 0.5rem 1.25rem;
+  border-radius: 50px;
+  border: 1px solid rgba(0, 0, 0, 0.11);
   font-weight: bold;
+  transition: background-color 0.5s, color 0.5s;
 }
-.card-description > .google-link {
-  color: #1999ff;
-  font-weight: bold;
+.hn-length:hover {
+  color: white;
+  background-color: rgba(0, 0, 0, 0.85);
+  cursor: pointer;
 }
 </style>

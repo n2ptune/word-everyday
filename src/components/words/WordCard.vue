@@ -19,6 +19,12 @@
         </div>
       </div>
     </div>
+    <div class="card-description">
+      <div class="content">
+        <font-awesome-icon icon="hand-pointer" :style="{ marginRight: '5px' }" />
+        단어를 클릭해서 뜻을 맞춰보세요!
+      </div>
+    </div>
     <word-modal
       name="word-modal"
       @before-open="openModalHandler"
@@ -97,5 +103,14 @@ export default {
   font-weight: bold;
   display: inline-block;
   padding: 0 0.5rem 0 0.5rem;
+}
+.card-description {
+  display: flex;
+  justify-content: center;
+  margin: 0.5rem 0;
+}
+.card-description > .content {
+  text-align: center;
+  color: var(--grey-color);
 }
 </style>
