@@ -21,7 +21,10 @@
     </div>
     <div class="card-description">
       <div class="content">
-        <font-awesome-icon icon="hand-pointer" :style="{ marginRight: '5px' }" />
+        <font-awesome-icon
+          icon="hand-pointer"
+          :style="{ marginRight: '5px' }"
+        />
         단어를 클릭해서 뜻을 맞춰보세요!
       </div>
     </div>
