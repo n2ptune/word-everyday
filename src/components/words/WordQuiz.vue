@@ -8,8 +8,8 @@
         icon="times"
         :style="{
           float: 'right',
-          paddingRight: '8px',
-          paddingTop: '3px',
+          marginRight: '8px',
+          marginTop: '3px',
           color: 'black',
           cursor: 'pointer'
         }"
@@ -106,12 +106,12 @@ export default {
   height: auto;
 }
 .word-sample {
-  border-radius: 15px;
+  border-radius: 10px;
   border: 1px solid #ddd;
   margin: 0 1.5rem 1.5rem 1.5rem;
   padding: 1.5rem;
   flex-grow: 4;
-  flex-basis: 125px;
+  flex-basis: 250px;
 }
 .word-sample:hover {
   cursor: pointer;
