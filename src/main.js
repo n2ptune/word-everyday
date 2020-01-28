@@ -11,6 +11,7 @@ import './plugins/axios'
 import store from './store'
 
 // Styles
+import '@/assets/style/tailwind.css'
 import '@/assets/style/global.css'
 import '@/assets/style/reset.css'
 import '@/assets/style/responsive.css'
