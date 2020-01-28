@@ -24,15 +24,30 @@ export default {
   },
   async created() {
     const baseURL = this.$baseURL()
-    const { data } = await this.axios.get('/random', {
-      baseURL
-    })
+
+    /**
+     * @get data from server
+     */
+    const { data } = await this.axios.get('/random', { baseURL })
+    const { data: hn } = await this.axios.get('/hackernews', { baseURL })
+
+    /**
+     * @bind data to vuex
+     */
     await this.$store.commit('words/setWords', data.words)
     await this.$store.commit('words/setStatus', data)
-    const { data: hackerNews } = await this.axios.get('/hackernews', {
-      baseURL
+    await this.$store.commit('hn/setNews', hn)
+
+    /**
+     * @generate dummy text
+     */
+    data.words.forEach(async wordObj => {
+      const { word } = wordObj
+      const { data: dummy } = await this.axios.get(`/dummy/10/3/${word}`, {
+        baseURL: this.$baseURL()
+      })
+      await this.$store.commit('words/setDummyText', { dummy, word })
     })
-    await this.$store.commit('hn/setNews', hackerNews)
   },
   computed: {
     ...mapGetters({
