@@ -28,11 +28,21 @@
         </div>
         <!-- @TODO -->
         <div class="mt-6 footer flex justify-end">
-          <button>
+          <button @click="showImproveTranslatingModal(content)">
             번역 개선하기
           </button>
         </div>
       </div>
+      <word-modal
+        name="word-modal"
+        transition="nice-modal-fade"
+        adaptive
+        height="auto"
+        :pivotY="0.2"
+        @before-open="openModalHandler"
+      >
+        <ImproveTranslatingModal :content="modalContent" />
+      </word-modal>
     </slot>
   </div>
 </template>
@@ -40,6 +50,15 @@
 <script>
 export default {
   props: ['news'],
+  data() {
+    return {
+      modalContent: null
+    }
+  },
+  components: {
+    ImproveTranslatingModal: () =>
+      import('@/components/hn/ImproveTranslatingModal')
+  },
   methods: {
     splitSentence(sentence, word) {
       const splits = sentence.split(word)
@@ -51,6 +70,12 @@ export default {
         case 2:
           return [splits[0], word, splits[1]]
       }
+    },
+    showImproveTranslatingModal(content) {
+      this.$modal.show('word-modal', { content })
+    },
+    openModalHandler(event) {
+      this.modalContent = event.params.content
     }
   }
 }

@@ -61,18 +61,17 @@ export default {
 
 <style lang="postcss" scoped>
 .menu li {
-  @apply inline-block mx-2;
+  @apply inline-block mx-4;
   line-height: 2.8rem;
 }
 .menu li:hover {
   border-bottom-style: solid;
-  border-bottom-width: 2px;
+  border-bottom-width: 2.5px;
 }
 .router-link-exact-active {
-  @apply text-green-600;
-  @apply border-green-600;
+  @apply text-green-600 border-green-600;
 
   border-bottom-style: solid;
-  border-bottom-width: 2px;
+  border-bottom-width: 2.5px;
 }
 </style>

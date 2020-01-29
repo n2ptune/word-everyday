@@ -6,7 +6,7 @@
     </transition>
     <transition name="fade-content" mode="out-in">
       <div class="hn-preview" v-if="hackerNews.length">
-        <div class="hn-length">
+        <div class="hn-length" @click="$router.push('/hn')">
           {{ hnExampleLength }}개의 해커뉴스 예문 보기
         </div>
       </div>
