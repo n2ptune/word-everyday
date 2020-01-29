@@ -42,10 +42,18 @@ export default {
      * @generate dummy text
      */
     data.words.forEach(async wordObj => {
-      const { word } = wordObj
-      const { data: dummy } = await this.axios.get(`/dummy/10/3/${word}`, {
-        baseURL: this.$baseURL()
-      })
+      const { word, translatedText } = wordObj
+      const { data: dummy } = await this.axios.post(
+        '/dummy',
+        {
+          length: 10,
+          count: 3,
+          translatedText
+        },
+        {
+          baseURL: this.$baseURL()
+        }
+      )
       await this.$store.commit('words/setDummyText', { dummy, word })
     })
   },

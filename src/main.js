@@ -18,10 +18,36 @@ import '@/assets/style/responsive.css'
 
 // Font-Awesome Icon
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { fas } from '@fortawesome/free-solid-svg-icons'
+import {
+  faInfoCircle,
+  faHandPointer,
+  faDatabase,
+  faServer,
+  faPeopleCarry,
+  faWifi,
+  faNetworkWired,
+  faFileWord,
+  faGlobeAsia,
+  faClock,
+  faSpinner,
+  faTimes
+} from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
-library.add(fas)
+library.add(
+  faInfoCircle,
+  faHandPointer,
+  faDatabase,
+  faServer,
+  faPeopleCarry,
+  faWifi,
+  faNetworkWired,
+  faFileWord,
+  faGlobeAsia,
+  faClock,
+  faSpinner,
+  faTimes
+)
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 
 Vue.config.productionTip = false

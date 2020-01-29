@@ -46,8 +46,13 @@ export default {
     const isDummy = this.filterDummy(this.content.word)
     if (!isDummy) {
       const baseURL = this.$baseURL()
-      const { data } = await this.axios.get(
-        `/dummy/10/3/${this.content.translatedText}`,
+      const { data } = await this.axios.post(
+        '/dummy',
+        {
+          length: 10,
+          count: 3,
+          translatedText: this.content.translatedText
+        },
         {
           baseURL
         }
