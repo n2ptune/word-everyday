@@ -1,3 +1,6 @@
+/**
+ * @NOTWORKING
+ */
 export default {
   install(Vue, options) {
     // 최대 값
@@ -16,11 +19,6 @@ export default {
     Vue.prototype.$bp = bp
 
     Vue.mixin({
-      data() {
-        return {
-          $bp: Vue.prototype.$bp
-        }
-      },
       methods: {
         resizingWindow() {
           const currentX = window.innerWidth

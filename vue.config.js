@@ -5,7 +5,7 @@ module.exports = {
   configureWebpack: {
     plugins: [
       new cssExtractPlugin({
-        filename:'css/[name].[contenthash:8].css',
+        filename: 'css/[name].[contenthash:8].css',
         chunkFilename: 'css/[name].[contenthash:8].css'
       })
     ]
@@ -13,5 +13,6 @@ module.exports = {
   chainWebpack: config => {
     config.resolve.alias
       .set('@', path.resolve(__dirname, 'src/'))
+      .set('@@', path.resolve(__dirname, './'))
   }
 }

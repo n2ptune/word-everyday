@@ -2,10 +2,9 @@
 
 html,
 body {
-  color: rgba(0, 0, 0, 0.78);
   font-family: -apple-system, BlinkMacSystemFont, 'Open Sans', 'Noto Sans KR',
     sans-serif;
-  background-color: #efefef;
+  height: 100%;
 }
 
 :root {
@@ -22,4 +21,14 @@ body {
 
 .v--modal-overlay {
   background: rgba(0, 0, 0, 0.56);
+}
+
+.fade-content-enter-active,
+.fade-content-leave-active {
+  transition: opacity 0.55s;
+  opacity: 1;
+}
+.fade-content-enter,
+.fade-content-leave-to {
+  opacity: 0;
 }

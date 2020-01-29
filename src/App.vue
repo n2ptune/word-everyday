@@ -1,12 +1,15 @@
 <template>
-  <div class="wrapper">
+  <div class="h-full bg-gray-200 overflow-auto">
     <Header
       v-if="
         $router.currentRoute.path !== '/' &&
           $router.currentRoute.name !== undefined
       "
     />
-    <router-view></router-view>
+    <router-view
+      class="flex mx-auto justify-center"
+      :class="$router.currentRoute.path === '/' ? '' : 'container'"
+    ></router-view>
   </div>
 </template>
 
@@ -14,17 +17,6 @@
 export default {
   components: {
     Header: () => import('@/components/section/Header')
-  },
-  created() {
-    document.body.style.margin = 0
   }
 }
 </script>
-
-<style scoped>
-.wrapper {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-}
-</style>

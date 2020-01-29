@@ -69,15 +69,6 @@ export default {
 </script>
 
 <style scoped>
-.fade-content-enter-active,
-.fade-content-leave-active {
-  transition: opacity 0.55s;
-  opacity: 1;
-}
-.fade-content-enter,
-.fade-content-leave-to {
-  opacity: 0;
-}
 .hn-preview {
   display: flex;
   justify-content: center;

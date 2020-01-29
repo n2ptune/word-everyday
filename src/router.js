@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import Index from '@/router/index'
 import Olds from '@/router/olds'
 import Contributing from '@/router/contributing'
+import HackerNews from '@/router/hn'
 import NotFound from './components/NotFound'
 
 Vue.use(VueRouter)
@@ -22,6 +23,11 @@ const routes = [
     name: 'contributing',
     path: '/contributing',
     component: Contributing
+  },
+  {
+    name: 'HackerNews',
+    path: '/hn',
+    component: HackerNews
   },
   {
     name: undefined,

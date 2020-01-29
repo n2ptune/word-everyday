@@ -3,7 +3,6 @@ import App from './App.vue'
 
 // Plugins
 import router from './router'
-import breakpoint from '@/plugins/breakpoint'
 import dayjs from '@/plugins/day'
 import modal from 'vue-js-modal'
 import baseURL from '@/plugins/base-url'
@@ -30,7 +29,9 @@ import {
   faGlobeAsia,
   faClock,
   faSpinner,
-  faTimes
+  faTimes,
+  faBars,
+  faNewspaper
 } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
@@ -46,13 +47,14 @@ library.add(
   faGlobeAsia,
   faClock,
   faSpinner,
-  faTimes
+  faTimes,
+  faBars,
+  faNewspaper
 )
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 
 Vue.config.productionTip = false
 Vue.use(baseURL)
-Vue.use(breakpoint)
 Vue.use(modal, { componentName: 'word-modal', dynamic: true })
 Vue.prototype.$day = dayjs
 
