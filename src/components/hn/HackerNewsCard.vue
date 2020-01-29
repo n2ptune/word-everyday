@@ -37,6 +37,7 @@
         name="word-modal"
         transition="nice-modal-fade"
         adaptive
+        scrollable
         height="auto"
         :pivotY="0.2"
         @before-open="openModalHandler"

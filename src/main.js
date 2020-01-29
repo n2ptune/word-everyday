@@ -31,7 +31,8 @@ import {
   faSpinner,
   faTimes,
   faBars,
-  faNewspaper
+  faNewspaper,
+  faCheck
 } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
@@ -49,7 +50,8 @@ library.add(
   faSpinner,
   faTimes,
   faBars,
-  faNewspaper
+  faNewspaper,
+  faCheck
 )
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 
