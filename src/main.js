@@ -57,7 +57,11 @@ Vue.component('font-awesome-icon', FontAwesomeIcon)
 
 Vue.config.productionTip = false
 Vue.use(baseURL)
-Vue.use(modal, { componentName: 'word-modal', dynamic: true })
+Vue.use(modal, {
+  componentName: 'word-modal',
+  dynamic: true,
+  injectModalsContainer: true
+})
 Vue.prototype.$day = dayjs
 
 new Vue({
