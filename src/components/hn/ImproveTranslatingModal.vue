@@ -68,17 +68,16 @@ export default {
   created() {
     for (let i = 0; i < this.content.titles.length; i++) {
       this.customTranslateText[i].value = null
-      console.log(this.customTranslateText[i])
     }
   },
   methods: {
+    // eslint-disable-next-line no-unused-vars
     sendTranslateText(idx) {
       /**
        * @todo send translated text of user to server
        * change @sendStatus when you send data successfully
        * @validate bound v-model data must be not null
        */
-      console.log(this.customTranslateText[idx].value)
     }
   },
   beforeDestroy() {
