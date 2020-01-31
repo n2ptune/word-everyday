@@ -1,5 +1,5 @@
 <template>
-  <section class="hero-wrapper h-full">
+  <section class="hero-wrapper">
     <HeroLeft />
     <HeroRight />
   </section>

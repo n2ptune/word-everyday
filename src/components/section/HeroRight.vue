@@ -1,5 +1,5 @@
 <template>
-  <div class="hero">
+  <div class="hero h-full">
     <div class="hero-content">
       <div class="hero-content-title">
         매일 영어 단어 10개씩

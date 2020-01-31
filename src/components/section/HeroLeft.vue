@@ -1,5 +1,5 @@
 <template>
-  <div class="hero h-full">
+  <div class="hero">
     <div class="hero-content">
       <div class="hero-content-title">
         Word Everyday
