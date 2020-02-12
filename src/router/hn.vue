@@ -1,7 +1,7 @@
 <template>
   <div>
     <HackerNewsWrapper>
-      <transition name="fade-content" mode="in-out">
+      <transition name="fade-content" mode="out-in">
         <div v-if="!news.length && !loading">
           <div class="mb-2 text-gray-700">
             번역 중...
@@ -19,7 +19,7 @@
           </ContentLoader>
         </div>
         <HackerNewsCard v-else-if="news.length && loading" :news="news" />
-        <div v-else>
+        <div v-else-if="!news.length && !loading">
           <div class="text-gray-700 mt-8">
             오늘 단어에 알맞는 해커 뉴스 번역 내용이 없습니다.
           </div>
@@ -70,8 +70,10 @@ export default {
     }
   },
   async created() {
-    await this.getHackerNews()
-    this.loading = true
+    if (!this.news.length) {
+      await this.getHackerNews()
+      this.loading = true
+    }
   }
 }
 </script>
