@@ -32,7 +32,7 @@
     "babel-eslint": "^10.0.3",
     "cssnano": "^4.1.10",
     "eslint": "^5.16.0",
-    "eslint-plugin-vue": "^5.0.0",
+    "eslint-plugin-vue": "^7.14.0",
     "mini-css-extract-plugin": "^0.9.0",
     "tailwindcss": "^1.1.4",
     "vue-cli-plugin-axios": "^0.0.4",
